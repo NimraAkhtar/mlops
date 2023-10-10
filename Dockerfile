@@ -1,11 +1,8 @@
-# Use an official Python runtime as a parent image
-FROM python:3.8-slim-buster
+# Container image that runs your code
+FROM alpine:3.10
 
-# Set the working directory to /app
-WORKDIR /app
+# Copies your code file from your action repository to the filesystem path `/` of the container
+COPY entrypoint.sh /entrypoint.sh
 
-# Copy the Python script into the container
-COPY ./app/app.py
-
-# Run the Python script when the container launches
-CMD ["python", "app.py"]
+# Code file to execute when the docker container starts up (`entrypoint.sh`)
+ENTRYPOINT ["/entrypoint.sh"]
