@@ -5,7 +5,7 @@ FROM python:3.8-slim-buster
 WORKDIR /app
 
 # Copy the Python script into the container
-COPY app.py /app
+COPY ./app/app.py
 
 # Run the Python script when the container launches
 CMD ["python", "app.py"]
