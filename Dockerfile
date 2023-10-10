@@ -1,19 +1,5 @@
-name: Build Docker Image
+# Use an official Python runtime as a parent image
+FROM python:3.8-slim-buster
 
-on:
-  push:
-    branches:
-      - master
-      - translator
 
-jobs:
-  build_image:
-    runs-on: ubuntu-latest
 
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v2
-
-      - name: Build Docker Image
-        run: |
-          docker build -t your-image-name:latest
