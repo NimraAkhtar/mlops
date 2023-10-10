@@ -1,19 +1,12 @@
-name:CI
+# Use an official Python runtime as a parent image
+FROM python:3.8-slim-buster
 
-on:
-  push:
-    branches:
-      - master
-      - translator
+# Set the working directory to /app
+WORKDIR /app
 
-jobs:
-  build_image:
-    runs-on: ubuntu-latest
+# Copy a simple Python script to the container
+COPY hello.py /app
 
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v2
+# Run the Python script when the container launches
+CMD ["python", "hello.py"]
 
-      - name: Build Docker Image
-        run: |
-          docker build -t your-image-name:latest
